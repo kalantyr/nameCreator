@@ -1,4 +1,4 @@
-package ru.kalantyr.nameCreator;
+package com.kalantyr.nameCreator.core;
 
 public class RuWordsSource implements IRuWordsSource {
 

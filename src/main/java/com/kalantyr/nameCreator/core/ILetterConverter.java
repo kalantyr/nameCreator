@@ -1,4 +1,4 @@
-package ru.kalantyr.nameCreator;
+package com.kalantyr.nameCreator.core;
 
 /**
  *  Умеет конвертировать русский символ в английский
