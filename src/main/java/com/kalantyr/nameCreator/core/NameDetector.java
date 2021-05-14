@@ -1,6 +1,7 @@
 package com.kalantyr.nameCreator.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class NameDetector {
 
@@ -11,7 +12,7 @@ public class NameDetector {
         this.converter = converter;
     }
 
-    public Iterable<String> detect(WordsSource ruWordsSource) {
+    public Collection<String> detect(WordsSource ruWordsSource) {
         var result = new ArrayList<String>();
 
         for (var ruWord : ruWordsSource.getWords()) {
