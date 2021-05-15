@@ -8,7 +8,6 @@ public class NameDetector {
     private LetterConverter converter;
 
     public NameDetector(LetterConverter converter) {
-
         this.converter = converter;
     }
 

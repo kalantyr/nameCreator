@@ -3,6 +3,13 @@
 <?import javafx.scene.control.TextArea?>
 
 <GridPane fx:controller="com.kalantyr.nameCreator.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <TextArea fx:id="taConverts" GridPane.rowIndex="0"/>
-    <Button text="Start" onAction="#onStartClicked"  GridPane.rowIndex="1"/>
+    <GridPane  GridPane.rowIndex="0">
+        <TextArea fx:id="taRuWords"/>
+        <TextArea fx:id="taConverts" GridPane.columnIndex="1" />
+        <TextArea fx:id="taResult" GridPane.columnIndex="2" />
+    </GridPane>
+    <GridPane GridPane.rowIndex="1">
+        <Button text="Add words..." onAction="#onAddWordsClicked" GridPane.columnIndex="0"/>
+        <Button text="Start" onAction="#onStartClicked" GridPane.columnIndex="1"/>
+    </GridPane>
 </GridPane>

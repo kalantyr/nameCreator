@@ -7,7 +7,6 @@ public class RuToEnConverter implements LetterConverter {
     private Map<Character, Character> map;
 
     public static Map<Character, Character> defaultConverts;
-
     static {
         defaultConverts = new HashMap<>();
         defaultConverts.put('А', 'A');
@@ -31,7 +30,7 @@ public class RuToEnConverter implements LetterConverter {
         defaultConverts.put('х', 'x');
     }
 
-    public RuToEnConverter(String text){
+    public RuToEnConverter(String text) {
         map = new HashMap<>();
         for (var line: text.split("\n"))
             map.put(line.charAt(0), line.charAt(line.length() - 1));
@@ -46,5 +45,4 @@ public class RuToEnConverter implements LetterConverter {
     public char convertToEn(char ruChar) {
         return map.get(ruChar);
     }
-
 }
