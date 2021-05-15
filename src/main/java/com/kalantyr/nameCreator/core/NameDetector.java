@@ -18,14 +18,29 @@ public class NameDetector {
         for (var ruWord : ruWordsSource.getWords()) {
             var enWord = getEnWord(ruWord);
             if (enWord != null)
-                result.add(enWord);
+                if (!result.contains(enWord))
+                    result.add(enWord);
+
+            enWord = getEnWord(ruWord.toUpperCase());
+            if (enWord != null)
+                if (!result.contains(enWord))
+                    result.add(enWord);
         }
 
-        converter.convertToEn('А');
         return result;
     }
 
     private String getEnWord(String ruWord) {
-        throw new UnsupportedOperationException();
+        var chars = new char[ruWord.length()];
+        for (var i = 0; i < ruWord.length(); i++) {
+            char ruChar = ruWord.charAt(i);
+            if (converter.canConvert(ruChar)) {
+                var enChar = converter.convertToEn(ruChar);
+                chars[i] = enChar;
+            }
+            else
+                return null;
+        }
+        return new String(chars);
     }
 }
