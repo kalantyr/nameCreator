@@ -1,9 +1,8 @@
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="com.kalantyr.nameCreator.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <Button text="Start" onAction="#onStartClicked"/>
+<?import javafx.scene.control.TextArea?>
+
+<GridPane fx:controller="com.kalantyr.nameCreator.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <TextArea fx:id="taConverts" GridPane.rowIndex="0"/>
+    <Button text="Start" onAction="#onStartClicked"  GridPane.rowIndex="1"/>
 </GridPane>

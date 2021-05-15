@@ -7,8 +7,8 @@ import org.junit.Test;
 public class RuToEnConverter_Test {
     @Test
     public void convertToEn() {
-        var letterConverter = new RuToEnConverter();
-        var result = letterConverter.convertToEn('А');
-        Assert.assertEquals('A', result);
+        var letterConverter = new RuToEnConverter("А -> A" + "\n" + "В -> B");
+        Assert.assertEquals('A', letterConverter.convertToEn('А'));
+        Assert.assertEquals('B', letterConverter.convertToEn('В'));
     }
 }

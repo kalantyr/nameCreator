@@ -4,13 +4,10 @@ import com.kalantyr.nameCreator.core.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
 import static org.mockito.Mockito.*;
 
 public class NameDetector_Test {
