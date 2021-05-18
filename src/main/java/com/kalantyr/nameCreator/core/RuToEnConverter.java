@@ -1,34 +1,36 @@
 package com.kalantyr.nameCreator.core;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class RuToEnConverter implements LetterConverter {
-    private Map<Character, Character> map;
 
-    public static Map<Character, Character> defaultConverts;
+    public static final Map<Character, Character> defaultConverts;
     static {
-        defaultConverts = new HashMap<>();
-        defaultConverts.put('А', 'A');
-        defaultConverts.put('В', 'B');
-        defaultConverts.put('Е', 'E');
-        defaultConverts.put('З', '3');
-        defaultConverts.put('К', 'K');
-        defaultConverts.put('М', 'M');
-        defaultConverts.put('Н', 'H');
-        defaultConverts.put('О', 'O');
-        defaultConverts.put('Р', 'P');
-        defaultConverts.put('С', 'C');
-        defaultConverts.put('Т', 'T');
-        defaultConverts.put('Х', 'X');
-        defaultConverts.put('а', 'a');
-        defaultConverts.put('е', 'e');
-        defaultConverts.put('о', 'o');
-        defaultConverts.put('р', 'p');
-        defaultConverts.put('с', 'c');
-        defaultConverts.put('у', 'y');
-        defaultConverts.put('х', 'x');
+        defaultConverts = Arrays.stream(new Character[][] {
+                {'А', 'A'},
+                {'В', 'B'},
+                {'Е', 'E'},
+                {'З', '3'},
+                {'К', 'K'},
+                {'М', 'M'},
+                {'Н', 'H'},
+                {'О', 'O'},
+                {'Р', 'P'},
+                {'С', 'C'},
+                {'Т', 'T'},
+                {'Х', 'X'},
+                {'а', 'a'},
+                {'е', 'e'},
+                {'о', 'o'},
+                {'р', 'p'},
+                {'с', 'c'},
+                {'у', 'y'},
+                {'х', 'x'}
+        }).collect(Collectors.toMap(p -> p[0], p -> p[1]));
     }
+
+    private Map<Character, Character> map;
 
     public RuToEnConverter(String text) {
         map = new HashMap<>();

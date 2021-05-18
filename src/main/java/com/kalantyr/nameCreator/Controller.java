@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
+
 import java.awt.*;
 import java.io.*;
 import java.nio.CharBuffer;
@@ -21,6 +22,8 @@ public class Controller {
     private TextArea taRuWords;
     @FXML
     private TextArea taResult;
+    @FXML
+    private javafx.scene.control.CheckBox cbCaps;
 
     private Desktop desktop = Desktop.getDesktop();
     final FileChooser fileChooser = new FileChooser();
@@ -40,8 +43,11 @@ public class Controller {
     {
         var converter = new RuToEnConverter(taConverts.getText());
         var nameDetector = new NameDetector(converter);
-        var result = nameDetector.detect(new RuWordsCollection(taRuWords.getText()));
-        taResult.setText(String.join(System.lineSeparator(), result));
+        var result = nameDetector.detect(new RuWordsCollection(taRuWords.getText()), cbCaps.isSelected());
+        taResult.setText(result
+                .stream()
+                .sorted((s1, s2) -> s2.length() - s1.length())
+                .collect(Collectors.joining(System.lineSeparator())));
     }
 
     @FXML

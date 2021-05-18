@@ -1,6 +1,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.CheckBox?>
 
 <GridPane fx:controller="com.kalantyr.nameCreator.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <GridPane  GridPane.rowIndex="0">
@@ -10,6 +11,7 @@
     </GridPane>
     <GridPane GridPane.rowIndex="1">
         <Button text="Add words..." onAction="#onAddWordsClicked" GridPane.columnIndex="0"/>
-        <Button text="Start" onAction="#onStartClicked" GridPane.columnIndex="1"/>
+        <CheckBox fx:id="cbCaps" text="CAPS" GridPane.columnIndex="1"/>
+        <Button text="Start" onAction="#onStartClicked" GridPane.columnIndex="2"/>
     </GridPane>
 </GridPane>

@@ -33,7 +33,7 @@ public class NameDetector_Test {
     public void detect() {
         var ruWordsSource = mock(WordsSource.class);
         when(ruWordsSource.getWords())
-                .thenReturn(Arrays.asList("Марс", "Венера"));
+                .thenReturn(Arrays.asList("марс", "венера"));
 
         var letterConverter = mock(LetterConverter.class);
 
@@ -50,10 +50,14 @@ public class NameDetector_Test {
                 });
 
         var detector = new NameDetector(letterConverter);
-        var result = detector.detect(ruWordsSource);
+        var result = detector.detect(ruWordsSource, false);
 
-        Assert.assertEquals(3, result.size());
+        Assert.assertEquals(1, result.size());
         Assert.assertTrue(result.contains("Mapc"));
+
+        result = detector.detect(ruWordsSource, true);
+
+        Assert.assertEquals(2, result.size());
         Assert.assertTrue(result.contains("MAPC"));
         Assert.assertTrue(result.contains("BEHEPA"));
     }
